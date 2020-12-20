@@ -1,6 +1,6 @@
 # Sapper GraphQL generator for Apollo
 
-GraphQL Code Generator plugin to use Apollo in Svelte with full Typescript support.
+GraphQL Code Generator plugin to use Apollo in Sapper with full Typescript support.
 
 ## Motivation
 
@@ -10,13 +10,30 @@ It turns out that Svelte with its reactive programming, is particularly well des
 
 ## Install
 
-`npm i -S graphql-codegen-svelte-apollo`
+`npm i -S graphql-codegen-sapper-apollo`
 
 ## Configuration
 
 - `clientPath` (default: null): Path to the apollo client for this project (should point to a file with an apollo-client as default export)
 
 Note: typescript and typescript-operations plugins are required.
+
+## Example ApolloCient 
+
+```typescript
+let client: ApolloClient<any>
+
+export default () => {
+  if(!client) {
+    client = new ApolloClient({
+      cache,
+      link,
+      connectToDevTools: true,
+    })
+  }
+  return client
+}
+```
 
 ## Example config
 
@@ -31,7 +48,7 @@ generates:
         plugins:
             - 'typescript'
             - 'typescript-operations'
-            - 'graphql-codegen-svelte-apollo'
+            - 'graphql-codegen-sapper-apollo'
         config:
           clientPath: "PATH_TO_APOLLO_CLIENT"
 hooks:
@@ -94,7 +111,7 @@ export const Transactions = (
     query: ObservableQuery<TransactionsQuery, TransactionsQueryVariables>;
   }
 > => {
-  const q = client.watchQuery({
+  const q = client().watchQuery({
     query: TransactionsDoc,
     ...options,
   });
