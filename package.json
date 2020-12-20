@@ -1,7 +1,7 @@
 {
-  "name": "graphql-codegen-svelte-apollo",
-  "author": "Thibaut Duchêne",
-  "version": "0.1.2",
+  "name": "graphql-codegen-sapper-apollo",
+  "author": "Joon-ha Lee",
+  "version": "0.1.4",
   "description": "GraphQL Code Generator plugin to generate client queries from graphql",
   "main": "src/index.js",
   "license": "MIT",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ticruz38/graphql-codegen-svelte-apollo.git"
+    "url": "git+https://github.com/iinow/graphql-codegen-svelte-apollo.git"
   },
   "keywords": [
     "svelte",
@@ -30,7 +30,7 @@
     "graphql-codegen"
   ],
   "bugs": {
-    "url": "https://github.com/ticruz38/graphql-codegen-svelte-apollo/issues"
+    "url": "https://github.com/iinow/graphql-codegen-svelte-apollo/issues"
   },
-  "homepage": "https://github.com/ticruz38/graphql-codegen-svelte-apollo#readme"
+  "homepage": "https://github.com/iinow/graphql-codegen-svelte-apollo#readme"
 }

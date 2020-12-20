@@ -1,4 +1,4 @@
-# Svelte GraphQL generator for Apollo
+# Sapper GraphQL generator for Apollo
 
 GraphQL Code Generator plugin to use Apollo in Svelte with full Typescript support.
 

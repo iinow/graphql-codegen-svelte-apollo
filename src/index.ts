@@ -95,7 +95,7 @@ module.exports = {
               >;
             }
           > => {
-            const q = client.watchQuery({
+            const q = client().watchQuery({
               query: ${o.name.value}Doc,
               ...options,
             });
@@ -125,7 +125,7 @@ module.exports = {
               "mutation"
             >
           ) => {
-            const m = client.mutate<${op}, ${opv}>({
+            const m = client().mutate<${op}, ${opv}>({
               mutation: ${o.name.value}Doc,
               ...options,
             });
@@ -136,7 +136,7 @@ module.exports = {
           operation = `export const ${o.name.value} = (
             options: Omit<SubscriptionOptions<${opv}>, "query">
           ) => {
-            const q = client.subscribe<${op}, ${opv}>(
+            const q = client().subscribe<${op}, ${opv}>(
               {
                 query: ${o.name.value}Doc,
                 ...options,

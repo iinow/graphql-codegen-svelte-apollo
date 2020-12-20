@@ -33,8 +33,15 @@ const link = ApolloLink.split(
   httpLink
 );
 
-export default new ApolloClient({
-  cache,
-  link,
-  connectToDevTools: true,
-});
+let client: ApolloClient<any>
+
+export default () => {
+  if(!client) {
+    client = new ApolloClient({
+      cache,
+      link,
+      connectToDevTools: true,
+    })
+  }
+  return client
+}
