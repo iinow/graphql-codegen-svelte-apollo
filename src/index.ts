@@ -63,6 +63,7 @@ module.exports = {
 
     const imports = [
       `import client from "${config.clientPath}";`,
+      `import { ApolloError, NetworkStatus } from '@apollo/client'`,
       `import type {
         ${operationImport}
       } from "@apollo/client";`,
@@ -109,9 +110,17 @@ module.exports = {
             >(
               { data: null, loading: true, error: null, networkStatus: 1, query: null },
               (set) => {
-                q.subscribe((v) => {
-                  set({ ...v, query: q });
-                });
+                q.result()
+                  .then((v) => set({ ...v, query: q }))
+                  .catch((e: ApolloError) =>
+                    set({
+                      error: e,
+                      query: q,
+                      data: null,
+                      loading: false,
+                      networkStatus: NetworkStatus.error,
+                    })
+                  );
               }
             );
             return result;
